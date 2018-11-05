@@ -49,11 +49,10 @@ fs.readFile('app/data/friends.json', 'utf-8', function(err, data) {
   arrayOfObjects.push(myData);
   arrayOfObjects.push(myData);
   console.log(arrayOfObjects);
+
+  // fs.writeFile("app/data/friends.json", JSON.stringify(arrayOfObjects), function (err) {
+  //   if (err) throw err;
+  //   console.log('complete');
+  // })
 })
 
-
-
-// fs.appendFile("app/data/friends.json", JSON.stringify(data), function (err) {
-//   if (err) throw err;
-//   console.log('complete');
-// })
