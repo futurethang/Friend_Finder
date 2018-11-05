@@ -9,7 +9,7 @@ router.use(function timeLog(req, res, next) {
 });
 
 router.get("/survey", function (req, res) {
-  res.sendfile(path.join(__dirname, "../public/survey.html"));
+  res.sendFile(path.join(__dirname, "../public/survey.html"));
 })
 
 router.get("/", function (req, res) {

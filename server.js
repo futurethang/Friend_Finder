@@ -13,11 +13,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 app.use(express.static('data'));
-app.use('/static', express.static('public'));
-app.use('/static', express.static('data'));
+// app.use('/static', express.static('public'));
+// app.use('/static', express.static('data'));
 
 var PORT = process.env.PORT || 8080;
 
+app.get('/app/data/questions.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'app/data', 'questions.js'));
+});
 
 app.post("/survey", function (req, res) {
   // var data = {
@@ -49,6 +52,8 @@ fs.readFile('app/data/friends.json', 'utf-8', function(err, data) {
   arrayOfObjects.push(myData);
   arrayOfObjects.push(myData);
   console.log(arrayOfObjects);
+
+// WILL RETURN TO THIS. THE WRITE WORKS BUT LOOPS INFINITELY
 
   // fs.writeFile("app/data/friends.json", JSON.stringify(arrayOfObjects), function (err) {
   //   if (err) throw err;

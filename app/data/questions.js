@@ -1,5 +1,3 @@
-alert("js loaded");
-
 var questions = {
   1 : "I see myself as extraverted, enthusiastic.",
   2 : "I see myself as critical, quarrelsome.",
@@ -13,6 +11,8 @@ var questions = {
 var dom_question = document.getElementById('question_label');
 var answer_selections = document.getElementsByName('radio');
 
-$("#submit").on("click", function () {
-  console.log(dom_question + answer_selections);
+$("#submit").on("click", function (e) {
+  e.preventDefault();
+  console.log(dom_question.textContent);
+  console.log($("input[name=radios]:checked").val());
 });
