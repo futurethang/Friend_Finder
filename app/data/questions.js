@@ -20,6 +20,7 @@ function Friend(name, image) {
   this.score = []
 }
 
+var questionCounter = 0;
 var newFriend = new Friend(); // this might need to be created more globally on page load
 
 $("#submit").one("click", function (e) {
@@ -38,10 +39,6 @@ $("#submit").one("click", function (e) {
   friendsQuestions();
 });
 
-
-// page loads only show ask for name and img url
-// on submit create newFriend object
-// on submit, unhide the question and selection boxes
 function unHideRadios() {
   document.getElementById('radio_selections').classList.remove('collapse');
 }
@@ -50,27 +47,34 @@ function hideNameImg() {
   document.getElementById('name_img').classList.add('collapse');
 }
 
-var counter = 0;
-function friendsQuestions() {   
-  while (counter < questions.length) {
-    dom_question.textContent = questions[counter];
+function friendsQuestions() { // This function cycles through the questions to push all to the score array
+  if (questionCounter < questions.length) {
+    loadNewQuestion();
     $("#submit").one("click", function (e) {
       e.preventDefault();
       var userSelection = $("input[name=radios]:checked").val();
       newFriend.score.push(userSelection)
-      console.log(newFriend);
-      // $("#submit").removeEventListener("click");
-      counter++;
+      questionCounter++;
       friendsQuestions();
     })
-    break;
+  } else {
+    surveyComplete();
   }
-  
-} // This function cycles through the questions to push all to the score array
+} 
 
+function loadNewQuestion() { 
+  dom_question.textContent = questions[questionCounter];
+}
+
+function surveyComplete() { // Here is where I need to send the New Friend data to the JSON object
+  alert("survey complete!");
+  console.log(newFriend);
+};
+
+// page loads only show ask for name and img url
+// on submit create newFriend object
+// on submit, unhide the question and selection boxes
 // load question and 'submit' listener
-function loadNewQuestion() { }
 // submit pushes selection to Freind.score arr
-
 // reload DOM with new question
 // reset listener
