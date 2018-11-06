@@ -20,19 +20,15 @@ function Friend(name, image) {
   this.scores = []
 }
 
-var questionCounter = 0;
-var newFriend = new Friend(); // this might need to be created more globally on page load
+var questionCounter = 0; // global counter to track question progress
+var newFriend = new Friend(); // new Frind created ready for inputs on page load
 
 $("#submit").one("click", function (e) {
   e.preventDefault();
-  var question = dom_question.textContent;
-  var userSelection = $("input[name=radios]:checked").val(); // this belongs in a Qs taking function
   var name = user_name.value;
   var image = imgURL.value;
   newFriend.name = name;
   newFriend.image = image;
-
-  console.log(newFriend);
 
   hideNameImg();
   unHideRadios();
@@ -66,7 +62,7 @@ function loadNewQuestion() {
   dom_question.textContent = questions[questionCounter];
 }
 
-function surveyComplete() { // Here is where I need to send the New Friend data to the JSON object
+function surveyComplete() { // Here is where I need to send the New Friend data to the apiRoutes to modify friends.json
   alert("survey complete!");
   fetch('http://localhost:8080/api/friends', {
     method: "POST",
