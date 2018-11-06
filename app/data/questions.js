@@ -17,7 +17,7 @@ var imgURL = document.getElementById('imgInp');
 function Friend(name, image) {
   this.name = name;
   this.image = image;
-  this.score = []
+  this.scores = []
 }
 
 var questionCounter = 0;
@@ -53,7 +53,7 @@ function friendsQuestions() { // This function cycles through the questions to p
     $("#submit").one("click", function (e) {
       e.preventDefault();
       var userSelection = $("input[name=radios]:checked").val();
-      newFriend.score.push(parseInt(userSelection))
+      newFriend.scores.push(parseInt(userSelection))
       questionCounter++;
       friendsQuestions();
     })
@@ -76,13 +76,3 @@ function surveyComplete() { // Here is where I need to send the New Friend data 
     body: JSON.stringify(newFriend),
   });
 };
-
-
-
-// page loads only show ask for name and img url
-// on submit create newFriend object
-// on submit, unhide the question and selection boxes
-// load question and 'submit' listener
-// submit pushes selection to Freind.score arr
-// reload DOM with new question
-// reset listener

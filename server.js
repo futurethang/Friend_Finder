@@ -18,14 +18,6 @@ app.use(express.static('data'));
 
 var PORT = process.env.PORT || 8080;
 
-function totalDifference(arr1, arr2) { // compare new friend to all the existing friend objects
-  var difference = 0;
-  arr1.forEach((answer,index) => {
-    difference += Math.abs(answer - arr2[index])
-  });
-  console.log(difference);
-}
-
 app.get('/app/data/questions.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'app/data', 'questions.js'));
 });

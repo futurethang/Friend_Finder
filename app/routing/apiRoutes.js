@@ -19,21 +19,42 @@ router.get("/api/friends", function (req, res) {
 })
 
 router.post("/api/friends", function (req, res) {
-  // logid to add a new friend record
   var newFriend = req.body;
-  console.log(req.body);
-  // res.json(newFriend)
-
+  // creates new friend and updates json file
   try {
     const friends = JSON.parse(fs.readFileSync("app/data/friends.json"));
-    console.log(friends);
-    friends.friends.push(req.body); // This should be validated properly!
+    friends.friends.push(newFriend); // This should be validated properly!
     fs.writeFileSync("app/data/friends.json", JSON.stringify(friends, null, 2));
     res.json(friends);
   } catch (err) {
     // JSON.parse or fs.writeFileSync might fail:
     throw err
   }
+
+  // loop through friends.friends, excluding if matches newFriend.name
+  console.log("friends:");
+  console.log(friends);
+  friends.friends.forEach((f) => {
+    var currentIterateScore = f.scores;
+    var newFriendScore = newFriend.scores;
+    var friendComparisonScores = {}
+    // console.log(currentIterateScore);
+    // console.log(newFriendScore);
+    friendComparisonScores[f.name] = totalDifference(currentIterateScore,newFriendScore)
+    console.log(friendComparisonScores);
+  })
+  // run the totalDiffence function, creates object that lists {"name": matchScore} for each friend
+  // ref to output the friend with lowest matchScore
+
 })
+
+
+function totalDifference(arr1, arr2) { // compare new friend to all the existing friend objects
+  var difference = 0;
+  arr1.forEach((answer,index) => {
+    difference += Math.abs(answer - arr2[index])
+  });
+  return difference;
+}
 
 module.exports = router;

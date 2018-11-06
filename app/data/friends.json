@@ -10,10 +10,7 @@
         4,
         5,
         1,
-        2,
-        5,
-        4,
-        1
+        2
       ]
     },
     {
@@ -26,45 +23,13 @@
         1,
         4,
         1,
-        2,
-        3,
-        2,
-        1
-      ]
-    },
-    {
-      "name": "Dirk",
-      "photo": "https://media.licdn.com/.../foo.jpg",
-      "scores": [
-        3,
-        4,
-        2,
-        1,
-        4,
-        1,
-        2,
-        3,
-        2,
-        1
-      ]
-    },
-    {
-      "name": "Kevin",
-      "image": "C:\\fakepath\\ds.jpg",
-      "score": [
-        "4",
-        "4",
-        "4",
-        "4",
-        "4",
-        "4",
-        "4"
+        2
       ]
     },
     {
       "name": "Kevin2",
       "image": "C:\\fakepath\\ds.jpg",
-      "score": [
+      "scores": [
         1,
         1,
         1,
@@ -72,6 +37,97 @@
         1,
         1,
         1
+      ]
+    },
+    {
+      "name": "Kevin3",
+      "image": "C:\\fakepath\\ds.jpg",
+      "scores": [
+        1,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "name": "",
+      "image": "",
+      "scores": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "kevin 4",
+      "image": "",
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "name": "kevin 5",
+      "image": "",
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "name": "kevin 6",
+      "image": "",
+      "scores": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "kevin 7",
+      "image": "",
+      "scores": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "kevin 8",
+      "image": "",
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
       ]
     }
   ]
