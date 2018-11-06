@@ -33,7 +33,7 @@ $("#submit").one("click", function (e) {
   newFriend.image = image;
 
   console.log(newFriend);
-  
+
   hideNameImg();
   unHideRadios();
   friendsQuestions();
@@ -53,23 +53,31 @@ function friendsQuestions() { // This function cycles through the questions to p
     $("#submit").one("click", function (e) {
       e.preventDefault();
       var userSelection = $("input[name=radios]:checked").val();
-      newFriend.score.push(userSelection)
+      newFriend.score.push(parseInt(userSelection))
       questionCounter++;
       friendsQuestions();
     })
   } else {
     surveyComplete();
   }
-} 
+}
 
-function loadNewQuestion() { 
+function loadNewQuestion() {
   dom_question.textContent = questions[questionCounter];
 }
 
 function surveyComplete() { // Here is where I need to send the New Friend data to the JSON object
   alert("survey complete!");
-  console.log(newFriend);
+  fetch('http://localhost:8080/api/friends', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+    body: JSON.stringify(newFriend),
+  });
 };
+
+
 
 // page loads only show ask for name and img url
 // on submit create newFriend object

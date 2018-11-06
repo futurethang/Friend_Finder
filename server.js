@@ -30,6 +30,11 @@ app.get('/app/data/questions.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'app/data', 'questions.js'));
 });
 
+app.get('api/friends', function (req, res) { 
+  // if (err) throw err;
+  return res.json(path.join(__dirname, 'app/data', 'friends.json'));
+})
+
 app.post("/survey", function (req, res) {
   // var data = {
   //   test: "test",
@@ -55,11 +60,11 @@ var myData = {
 fs.readFile('app/data/friends.json', 'utf-8', function(err, data) {
 	if (err) throw err
 
-  var arrayOfObjects = JSON.parse(data)
-  arrayOfObjects.push(myData);
-  arrayOfObjects.push(myData);
-  arrayOfObjects.push(myData);
-  console.log(arrayOfObjects);
+  // var arrayOfObjects = JSON.parse(data)
+  // arrayOfObjects.push(myData);
+  // arrayOfObjects.push(myData);
+  // arrayOfObjects.push(myData);
+  // console.log(arrayOfObjects);
 
 // WILL RETURN TO THIS. THE WRITE WORKS BUT LOOPS INFINITELY
 
