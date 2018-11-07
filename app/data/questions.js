@@ -1,4 +1,3 @@
-
 var questions = [
   "I see myself as extraverted, enthusiastic.",
   "I see myself as critical, quarrelsome.",
@@ -72,3 +71,9 @@ function surveyComplete() { // Here is where I need to send the New Friend data 
     body: JSON.stringify(newFriend),
   });
 };
+
+function loadFriendMatchModal() {
+  // get the name of the friend who is a match, currently inside apiRoutes
+  // reference the info in that friend's object within friends.json
+  // write to a modal container on surveyComplete.html
+}

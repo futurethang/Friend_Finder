@@ -18,7 +18,7 @@ router.get("/api/friends", function (req, res) {
   return res.json(friends);
 })
 
-router.post("/api/friends", function (req, res) {
+router.post("/api/friends", function (req, res) { // In which the new Friend is added to friends.json and compared to all other friend records for a best match
   var newFriend = req.body; // creates new friend and updates json file
 
   try { // Grab the friends.json content, append, and write back
