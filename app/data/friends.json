@@ -40,47 +40,34 @@
       ]
     },
     {
-      "name": "Test 3",
-      "image": "C:\\fakepath\\ds.jpg",
+      "name": "kevin 3",
+      "image": "",
       "scores": [
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
       ]
     },
     {
-      "name": "Test 4",
-      "image": "C:\\fakepath\\ds.jpg",
+      "name": "DARTS",
+      "image": "",
       "scores": [
-        5,
-        5,
-        5,
-        5,
-        5,
-        5,
-        5
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
       ]
     },
     {
-      "name": "Test 5",
-      "image": "C:\\fakepath\\ds.jpg",
-      "scores": [
-        5,
-        5,
-        5,
-        5,
-        5,
-        5,
-        5
-      ]
-    },
-    {
-      "name": "kevin 13",
-      "image": "C:\\fakepath\\ds.jpg",
+      "name": "FARTS",
+      "image": "",
       "scores": [
         1,
         1,

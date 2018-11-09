@@ -6,13 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- BOOTSTRAP 4 LINKS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <script href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <script href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
 
   <!-- CUSTOM CSS -->
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
@@ -24,9 +22,29 @@
     <h1>SURVEY.HTML</h1>
   </div>
 
+  <!-- Modal -->
+  <div class="modal fade" id="resultsModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>This is your match.</h3>
+        </div>
+        <div class="modal-body">
+          <h2 id="matchName"></h2>
+          <img id="matchImg" src="" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end modal window -->
+
   <div class="container-fluid">
     <div class="mx-auto" style="width: 400px;">
       <form>
+        <!-- NAME AND IMAGE SECTION -->
         <div class="form-group" id="name_img">
           <div class="form-group">
             <label for="user_name">Name</label>
@@ -35,9 +53,6 @@
           <!-- Image Upload Box -->
           <div class="img_upload">
             <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Upload</span>
-              </div>
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="imgInp">
                 <label class="custom-file-label" for="imgInp">Choose file</label>
@@ -46,8 +61,10 @@
             </div>
           </div>
         </div>
+        <!-- END NAME AND IMAGE SECTION -->
+
+        <!-- MULT CHOICE QUESTIONs -->
         <div class="form-group collapse" id="radio_selections">
-          <!-- MULT CHOICE QUESTION 1 -->
           <div class="card">
             <div class="card-body">
               <label class="" for="radios" id="question_label">1. I see myself as extraverted, enthusiastic.</label>
@@ -88,63 +105,24 @@
             </div>
             <div class="card">
             </div>
-
-            <!-- <label class="col-md-4 control-label" for="radios" id="question_label">1. I see myself as extraverted, enthusiastic.</label> -->
-            <div class="option_box">
-
-            </div>
-
           </div>
-
         </div>
+        <!-- END MULT CHOICE QUESTIONs -->
+
+        <!-- START SUBMIT BUTTON CARD -->
         <div class="card">
           <div class="card-body">
             <button type="submit" class="btn btn-primary" id="submit">Submit</button>
           </div>
         </div>
+        <!-- END START SUBMIT BUTTON CARD -->
+
       </form>
     </div>
   </div>
-  <script type="text/javascript" src="/app/data/questions.js"></script>
-  <!-- Code for the image uploader -->
 
-  <!-- <script>
-    $(document).ready(function () {
-      $(document).on('change', '.btn-file :file', function () {
-        var input = $(this),
-          label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-        input.trigger('fileselect', [label]);
-      });
+  <script type="text/javascript" src="questions.js"></script>
 
-      $('.btn-file :file').on('fileselect', function (event, label) {
-
-        var input = $(this).parents('.input-group').find(':text'),
-          log = label;
-
-        if (input.length) {
-          input.val(log);
-        } else {
-          if (log) alert(log);
-        }
-
-      });
-      function readURL(input) {
-        if (input.files && input.files[0]) {
-          var reader = new FileReader();
-
-          reader.onload = function (e) {
-            $('#img-upload').attr('src', e.target.result);
-          }
-
-          reader.readAsDataURL(input.files[0]);
-        }
-      }
-
-      $("#imgInp").change(function () {
-        readURL(this);
-      });
-    });
-  </script> -->
 </body>
 
 </html>
