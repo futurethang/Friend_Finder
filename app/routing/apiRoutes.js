@@ -23,9 +23,6 @@ router.post("/api/friends", function (req, res, next) { // In which the new Frie
   console.log(newFriend);
   // try { // Grab the friends.json content, append, and write back
   const friends = JSON.parse(fs.readFileSync("app/data/friends.json"));
-  friends.friends.push(newFriend); // This should be validated properly!
-  fs.writeFileSync("app/data/friends.json", JSON.stringify(friends, null, 2));
-  // res.json(friends);
   
   // loop through friends.friends, excluding if matches newFriend.name 
   const friendComparisonScores = {}
@@ -42,6 +39,13 @@ router.post("/api/friends", function (req, res, next) { // In which the new Frie
   bestFriend = findClosestScore(friendComparisonScores)
   console.log("best friend: " + findClosestScore(friendComparisonScores));
   res.send({"friend" : "test"});
+  
+  // UPDATE THE FRIENDS.JSON FILE
+  friends.friends.push(newFriend); // This should be validated properly!
+  fs.writeFileSync("app/data/friends.json", JSON.stringify(friends, null, 2));
+  // res.json(friends);
+  
+  
 })
 
 

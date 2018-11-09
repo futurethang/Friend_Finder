@@ -68,7 +68,7 @@ $(document).ready(function () {
 
   function surveyComplete() { // Here is where I need to send the New Friend data to the apiRoutes to modify friends.json
     // Show the modal with the best match 
-    $("#resultsModal").modal('toggle');
+    // $("#resultsModal").modal('toggle');
     alert(JSON.stringify(newFriend));
     /// DONE WITH AJAX
     // $.ajax({
