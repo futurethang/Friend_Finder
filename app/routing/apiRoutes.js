@@ -1,8 +1,8 @@
 var express = require('express');
-var path = require("path");
 var router = express.Router();
 var friends = require('../data/friends.json')
-var fs = require("fs");
+var fs = require('fs');
+let friendsData = require('../data/friends.js');
 
 // Tell the server to parse JSON bodies in your requests:
 const bodyParser = require("body-parser");
@@ -13,35 +13,39 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
+///////////////// ROUTES ///////////////////////////////////
 router.get("/api/friends", function (req, res) {
-  // res.json(path.join(__dirname, "../data/friends.js"));
   return res.json(friends);
 })
 
-router.post("/api/friends", function (req, res) { // In which the new Friend is added to friends.json and compared to all other friend records for a best match
+router.post("/api/friends", function (req, res, next) { // In which the new Friend is added to friends.json and compared to all other friend records for a best match
   var newFriend = req.body; // creates new friend and updates json file
-
-  try { // Grab the friends.json content, append, and write back
-    const friends = JSON.parse(fs.readFileSync("app/data/friends.json"));
-    friends.friends.push(newFriend); // This should be validated properly!
-    fs.writeFileSync("app/data/friends.json", JSON.stringify(friends, null, 2));
-    res.json(friends);
-  } catch (err) {
-    throw err
-  }
-
-  // loop through friends.friends, excluding if matches newFriend.name
+  console.log(newFriend);
+  // try { // Grab the friends.json content, append, and write back
+  const friends = JSON.parse(fs.readFileSync("app/data/friends.json"));
+  
+  // loop through friends.friends, excluding if matches newFriend.name 
   const friendComparisonScores = {}
   friends.friends.forEach((f) => {
     var currentIterateScore = f.scores;
     var newFriendScore = newFriend.scores;
+    console.log(currentIterateScore + newFriendScore)
     // create object that lists {"name": matchScore} for each friend
     friendComparisonScores[f.name] = totalDifference(currentIterateScore, newFriendScore);
   })
 
   // ref to output the friend with lowest matchScore
   console.log(friendComparisonScores);
-  console.log(findClosestScore(friendComparisonScores));
+  bestFriend = findClosestScore(friendComparisonScores)
+  console.log("best friend: " + findClosestScore(friendComparisonScores));
+  res.send({"friend" : "test"});
+  
+  // UPDATE THE FRIENDS.JSON FILE
+  friends.friends.push(newFriend); // This should be validated properly!
+  fs.writeFileSync("app/data/friends.json", JSON.stringify(friends, null, 2));
+  // res.json(friends);
+  
+  
 })
 
 
