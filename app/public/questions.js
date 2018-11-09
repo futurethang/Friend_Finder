@@ -1,3 +1,5 @@
+var moduleTest = "testing questions.js";
+
 var questions = [
   "I see myself as extraverted, enthusiastic.",
   "I see myself as critical, quarrelsome.",
@@ -21,6 +23,12 @@ function Friend(name, image) {
 
 var questionCounter = 0; // global counter to track question progress
 var newFriend = new Friend(); // new Frind created ready for inputs on page load
+
+// console.log(bestFriend);
+
+$("#modalButton").on('click', function () {
+  $("#friendModal").toggleClass('show')
+})
 
 $("#submit").one("click", function (e) {
   e.preventDefault();
@@ -62,14 +70,27 @@ function loadNewQuestion() {
 }
 
 function surveyComplete() { // Here is where I need to send the New Friend data to the apiRoutes to modify friends.json
-  alert("survey complete!");
-  fetch('http://localhost:8080/api/friends', {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-    },
-    body: JSON.stringify(newFriend),
+  alert(JSON.stringify(newFriend));
+  /// DONE WITH AJAX
+  $.ajax({
+    type: "POST",
+    url: "/api/friends",
+    dataType: "json",
+    data: {"newFriend": "test"},
+    // success: function (response) {
+    //   console.log(response);  
+    // }
   });
+  /// DONE WITH FETCH
+  // fetch('http://localhost:8080/api/friends', {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json; charset=utf-8",
+  //   },
+  //   body: JSON.stringify(newFriend),
+  // }).then(function (res) {
+  //   console.log(res);
+  // })
 };
 
 function loadFriendMatchModal() {
@@ -77,3 +98,6 @@ function loadFriendMatchModal() {
   // reference the info in that friend's object within friends.json
   // write to a modal container on surveyComplete.html
 }
+
+
+// module.exports.moduleTest = moduleTest;

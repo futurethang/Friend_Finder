@@ -1,6 +1,8 @@
 var express = require('express');
-var path = require("path");
+var path = require('path');
 var router = express.Router();
+
+var moduleTest = "htmlRoutes testing";
 
 //Middle ware that is specific to this router
 router.use(function timeLog(req, res, next) {
@@ -17,3 +19,4 @@ router.get("/", function (req, res) {
 })
 
 module.exports = router;
+module.exports.moduleTest = moduleTest;
