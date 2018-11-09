@@ -1,11 +1,8 @@
 var express = require('express');
-var path = require('path');
 var router = express.Router();
 var friends = require('../data/friends.json')
 var fs = require('fs');
-
-var bestFriend; // will store and export the name of the bext matching friend profile
-var moduleTest = "apiRoutes testing";
+let friendsData = require('../data/friends.js');
 
 // Tell the server to parse JSON bodies in your requests:
 const bodyParser = require("body-parser");
@@ -16,11 +13,8 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-
-
 ///////////////// ROUTES ///////////////////////////////////
 router.get("/api/friends", function (req, res) {
-  // res.json(path.join(__dirname, "../data/friends.js"));
   return res.json(friends);
 })
 
@@ -75,5 +69,3 @@ function findClosestScore(myjson) {
 //// END HELPER FUNCTIONS
 
 module.exports = router;
-module.exports.bestFriend = bestFriend
-module.exports.moduleTest = moduleTest
