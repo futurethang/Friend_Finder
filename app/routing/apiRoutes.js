@@ -39,17 +39,6 @@ router.post("/api/friends", function (req, res, next) { // In which the new Frie
   bestFriend = findClosestScore(friendComparisonScores)
   console.log(bestFriend);
   
-  /// ATTEMPT TO RETURN THE CORRECT FRIEND OBJECT WITH ONLY THE NAME
-  function findFriendObject(json, bf) {
-    console.log(json);
-    json.find((f) => {
-      console.log(f);
-      if (f.name === bf) {
-        return f;
-      }
-    })
-  }
-
   var findings = findFriendObject(friends.friends, bestFriend);
   console.log(findings);
   
@@ -84,6 +73,16 @@ function findClosestScore(myjson) {
   return result;
 }
 
+  /// ATTEMPT TO RETURN THE CORRECT FRIEND OBJECT WITH ONLY THE NAME
+  function findFriendObject(json, bf) {
+    console.log(json);
+    json.find((f) => {
+      console.log(f);
+      if (f.name === bf) {
+        return f;
+      }
+    })
+  }
 //// END HELPER FUNCTIONS
 
 module.exports = router;

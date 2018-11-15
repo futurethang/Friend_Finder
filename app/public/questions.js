@@ -91,9 +91,10 @@ $(document).ready(function () {
         "Content-Type": "application/json; charset=utf-8",
       },
       body: JSON.stringify(newFriend),
-    }).then(function (result) {
-      loadFriendMatchModal();
-      console.log(result.json());
+    }).then(function (promise) {
+      }).then(function (result) {
+        loadFriendMatchModal();
+        console.log(JSON.parse(result));
     })
   };
 
@@ -103,8 +104,4 @@ $(document).ready(function () {
     // reference the info in that friend's object within friends.json
     // write to a modal container on surveyComplete.html
   }
-
-
-  // module.exports.moduleTest = moduleTest;
-
 });
