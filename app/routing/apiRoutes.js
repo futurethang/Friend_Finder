@@ -37,15 +37,29 @@ router.post("/api/friends", function (req, res, next) { // In which the new Frie
   // ref to output the friend with lowest matchScore
   console.log(friendComparisonScores);
   bestFriend = findClosestScore(friendComparisonScores)
-  console.log("best friend: " + findClosestScore(friendComparisonScores));
-  res.send({"friend" : "test"});
+  console.log(bestFriend);
+  
+  /// ATTEMPT TO RETURN THE CORRECT FRIEND OBJECT WITH ONLY THE NAME
+  function findFriendObject(json, bf) {
+    console.log(json);
+    json.find((f) => {
+      console.log(f);
+      if (f.name === bf) {
+        return f;
+      }
+    })
+  }
+
+  var findings = findFriendObject(friends.friends, bestFriend);
+  console.log(findings);
+  
   
   // UPDATE THE FRIENDS.JSON FILE
   friends.friends.push(newFriend); // This should be validated properly!
   fs.writeFileSync("app/data/friends.json", JSON.stringify(friends, null, 2));
   // res.json(friends);
   
-  
+  res.send({"TEST":"test"});
 })
 
 
@@ -63,7 +77,7 @@ function findClosestScore(myjson) {
     // set initial value as first elemnt in array
     result = keys[0];
   // iterate over array elements
-  keys.forEach(function (v) {
+  keys.forEach(function (v,i) {
     // compare with current property value and update with the min value property
     result = +myjson[result] > +myjson[v] ? v : result;
   });

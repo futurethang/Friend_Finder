@@ -40,8 +40,21 @@
       ]
     },
     {
-      "name": "kevin 3",
-      "image": "",
+      "name": "HOWDY",
+      "image": "IMG",
+      "scores": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "HOWDY",
+      "image": "IMG",
       "scores": [
         4,
         4,
@@ -53,8 +66,34 @@
       ]
     },
     {
-      "name": "DARTS",
-      "image": "",
+      "name": "Kevin boy",
+      "image": "img",
+      "scores": [
+        4,
+        5,
+        4,
+        2,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "Kevin boy2",
+      "image": "img",
+      "scores": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "Kevin boy3",
+      "image": "img",
       "scores": [
         4,
         4,
@@ -66,8 +105,8 @@
       ]
     },
     {
-      "name": "FARTS",
-      "image": "",
+      "name": "Kevin boy3",
+      "image": "img",
       "scores": [
         1,
         1,
@@ -79,8 +118,21 @@
       ]
     },
     {
-      "name": "",
-      "image": "",
+      "name": "Kevin boy3",
+      "image": "img",
+      "scores": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "name": "Kevin boy3",
+      "image": "img",
       "scores": [
         5,
         5,
@@ -92,16 +144,42 @@
       ]
     },
     {
-      "name": "Krevin Hray",
-      "image": "https://static1.squarespace.com/static/58aca25203596e9fcc0dbbd6/t/5ba12398758d46165fb0dfdd/1537287108507/Kevin_Hyde.JPG?format=500w",
+      "name": "Kevin boy3",
+      "image": "img",
       "scores": [
-        1,
         3,
-        5,
-        2,
-        1,
         3,
-        5
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "Kevin boy3",
+      "image": "img",
+      "scores": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "Kevin boy3",
+      "image": "img",
+      "scores": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
       ]
     }
   ]

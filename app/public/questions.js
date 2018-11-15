@@ -39,6 +39,10 @@ $(document).ready(function () {
     friendsQuestions();
   });
 
+  $("#modalClose").on('click', function (e) {
+    $("#resultsModal").removeClass("show");
+  })
+
   function unHideRadios() {
     document.getElementById('radio_selections').classList.remove('collapse');
   }
@@ -87,12 +91,14 @@ $(document).ready(function () {
         "Content-Type": "application/json; charset=utf-8",
       },
       body: JSON.stringify(newFriend),
-    }).then(function (res) {
-      console.log(res);
+    }).then(function (result) {
+      loadFriendMatchModal();
+      console.log(result.json());
     })
   };
 
   function loadFriendMatchModal() {
+    $("#resultsModal").addClass("show");
     // get the name of the friend who is a match, currently inside apiRoutes
     // reference the info in that friend's object within friends.json
     // write to a modal container on surveyComplete.html
